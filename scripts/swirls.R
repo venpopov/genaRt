@@ -1,7 +1,13 @@
 # some functions use functions from scripts/utils.R, which needs to be sourced before running anything here
 
 library(ggplot2)
-rswirl <- function(N=sample(2:10,1), M=sample(2:15,1), holes=TRUE, seed=NULL, palette='full_random', color_seed=NULL) {
+rswirl <- function(N=sample(2:9,1), 
+                   M=sample(2:15,1), 
+                   holes=TRUE, 
+                   seed=NULL, 
+                   palette='full_random', 
+                   color_seed=NULL,
+                   rotate=runif(1, 0, 2*pi)) {
   # generate N polygons each with M vertices and 
   # fill each polygon with a different color then
   # plot in polar coordinates
@@ -37,5 +43,5 @@ rswirl <- function(N=sample(2:10,1), M=sample(2:15,1), holes=TRUE, seed=NULL, pa
   ggplot(matdat, aes(x,y, group=ids, subgroup=subid)) +
     geom_polygon(fill=matdat$value) +
     theme_void() +
-    coord_polar()
+    coord_polar(start=rotate)
 }
