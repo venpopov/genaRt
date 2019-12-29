@@ -1,5 +1,5 @@
 library(ggplot2)
-gen_random_polygons <- function(N=sample(2:10,1), M=sample(2:15,1), holes=TRUE, seed=NULL) {
+rswirl <- function(N=sample(2:10,1), M=sample(2:15,1), holes=TRUE, seed=NULL) {
   # generate N polygons each with M vertices and 
   # fill each polygon with a different color then
   # plot in polar coordinates
